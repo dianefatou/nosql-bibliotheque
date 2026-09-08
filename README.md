@@ -21,13 +21,14 @@ d'index avec **PyMongo**.
 
 ## Architecture du projet
 
+```
 nosql-bibliotheque/
-│
+
 ├── README.md                # Ce fichier
 ├── requirements.txt         # Dépendances Python
 ├── .env.example              # Modèle de configuration (sans identifiants réels)
 ├── .gitignore
-│
+
 ├── src/
 │   ├── config.py             # Lecture de la configuration (.env)
 │   ├── database.py           # Connexion à MongoDB
@@ -36,18 +37,20 @@ nosql-bibliotheque/
 │   ├── aggregations.py       # Pipelines d'agrégation
 │   ├── indexes.py             # Création et vérification des index
 │   └── main.py                 # Démonstration complète des fonctionnalités
-│
+
 ├── data/
 │   └── sample_data.json      # Aperçu lisible du jeu de données inséré
-│
+
 ├── docs/
 │   └── schema.json            # Schéma documenté des collections
-│
+
 ├── tests/
 │   └── test_project.py       # Vérifications de bon fonctionnement
-│
+
 └── rapport/
     └── Devoir Final Groupe3 NoSQL.pdf   # Rapport académique complet
+```
+
 
 ## Installation
 
