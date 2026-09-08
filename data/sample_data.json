@@ -1,0 +1,28 @@
+{
+  "description": "Aperçu lisible (non exécutable) du jeu de données inséré par src/init_database.py",
+  "authors_sample": [
+    { "nom": "George Orwell", "nationalite": "Britannique" },
+    { "nom": "Robert C. Martin", "nationalite": "Américaine" }
+  ],
+  "books_sample": [
+    {
+      "titre": "1984",
+      "auteurs": [{ "nom": "George Orwell" }],
+      "tags": ["Dystopie", "Science-fiction", "Politique"],
+      "disponible": true
+    },
+    {
+      "titre": "Le Guide du développeur pragmatique",
+      "auteurs": [{ "nom": "Robert C. Martin" }, { "nom": "George Orwell" }],
+      "tags": ["Génie logiciel", "Méthodologie"],
+      "disponible": false
+    }
+  ],
+  "loans_sample": [
+    {
+      "livre": "Clean Code",
+      "statut": "en_cours",
+      "date_retour": null
+    }
+  ]
+}

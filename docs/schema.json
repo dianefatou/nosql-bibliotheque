@@ -1,0 +1,59 @@
+{
+  "database": "bibliotheque_nosql",
+  "description": "Schéma documentaire de la bibliothèque numérique. MongoDB n'impose pas de schéma strict au niveau du moteur ; ce document décrit la structure conventionnelle appliquée par l'application.",
+  "collections": {
+    "authors": {
+      "description": "Un document par auteur. Collection séparée car un auteur peut être associé à plusieurs livres.",
+      "fields": {
+        "_id": { "type": "ObjectId" },
+        "nom": { "type": "string" },
+        "bio": { "type": "string" },
+        "nationalite": { "type": "string" }
+      }
+    },
+    "books": {
+      "description": "Un document par livre. Les auteurs sont référencés via une référence étendue (auteur_id + nom).",
+      "fields": {
+        "_id": { "type": "ObjectId" },
+        "titre": { "type": "string", "description": "Indexé (idx_titre)." },
+        "auteurs": {
+          "type": "array<object>",
+          "items": {
+            "auteur_id": { "type": "ObjectId", "description": "Référence vers authors._id." },
+            "nom": { "type": "string" }
+          }
+        },
+        "date_publication": { "type": "date" },
+        "tags": { "type": "array<string>" },
+        "resume": { "type": "string" },
+        "disponible": { "type": "boolean" }
+      }
+    },
+    "users": {
+      "description": "Un document par utilisateur emprunteur.",
+      "fields": {
+        "_id": { "type": "ObjectId" },
+        "nom": { "type": "string" },
+        "email": { "type": "string" }
+      }
+    },
+    "loans": {
+      "description": "Un document par emprunt. Livre et utilisateur référencés par ObjectId (référencement pur).",
+      "fields": {
+        "_id": { "type": "ObjectId" },
+        "utilisateur_id": { "type": "ObjectId", "description": "Référence vers users._id." },
+        "livre_id": { "type": "ObjectId", "description": "Référence vers books._id." },
+        "date_emprunt": { "type": "date" },
+        "date_retour_prevue": { "type": "date" },
+        "date_retour": { "type": "date | null" },
+        "statut": { "type": "string", "description": "'en_cours' ou 'rendu'." }
+      }
+    }
+  },
+  "indexes": {
+    "books": [
+      { "name": "idx_titre", "keys": { "titre": 1 } },
+      { "name": "idx_disponible_date_publication", "keys": { "disponible": 1, "date_publication": -1 } }
+    ]
+  }
+}
