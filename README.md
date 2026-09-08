@@ -20,30 +20,34 @@ d'index avec **PyMongo**.
 - **python-dotenv** pour la gestion de la configuration
 
 ## Architecture du projet
+
 nosql-bibliotheque/
 │
-├── README.md
-├── requirements.txt
-├── .env.example # modèle de configuration (sans identifiants réels)
+├── README.md                # Ce fichier
+├── requirements.txt         # Dépendances Python
+├── .env.example              # Modèle de configuration (sans identifiants réels)
 ├── .gitignore
 │
 ├── src/
-│ ├── config.py # lecture de la configuration (.env)
-│ ├── database.py # connexion à MongoDB
-│ ├── init_database.py # initialisation et peuplement de la base
-│ ├── crud.py # opérations Create / Read / Update / Delete
-│ ├── aggregations.py # pipelines d'agrégation
-│ ├── indexes.py # création et vérification des index
-│ └── main.py # démonstration complète des fonctionnalités
+│   ├── config.py             # Lecture de la configuration (.env)
+│   ├── database.py           # Connexion à MongoDB
+│   ├── init_database.py      # Initialisation et peuplement de la base
+│   ├── crud.py                # Opérations Create / Read / Update / Delete
+│   ├── aggregations.py       # Pipelines d'agrégation
+│   ├── indexes.py             # Création et vérification des index
+│   └── main.py                 # Démonstration complète des fonctionnalités
 │
 ├── data/
-├── docs/
-├── rapport/
-│ └── rapport_nosql_fatoumata.pdf
+│   └── sample_data.json      # Aperçu lisible du jeu de données inséré
 │
-└── tests/
-└── test_project.py # vérifications de bon fonctionnement
-
+├── docs/
+│   └── schema.json            # Schéma documenté des collections
+│
+├── tests/
+│   └── test_project.py       # Vérifications de bon fonctionnement
+│
+└── rapport/
+    └── Devoir Final Groupe3 NoSQL.pdf   # Rapport académique complet
 
 ## Installation
 
