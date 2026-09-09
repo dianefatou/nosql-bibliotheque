@@ -4,13 +4,19 @@ init_database.py
 Initialise la base de données de la bibliothèque numérique :
 - vide les collections existantes (pour permettre une exécution répétée) ;
 - insère des auteurs, des utilisateurs, des livres et des emprunts
-  cohérents entre eux.
+  cohérents entre eux ;
+- crée les index et applique les validateurs de schéma, pour que la
+  base soit entièrement prête après ce seul script (nécessaire pour
+  que le workflow GitHub Actions, qui n'exécute jamais main.py,
+  trouve les index déjà en place lors des tests).
 """
 
 from datetime import datetime, timedelta, UTC
 
 import config
 from database import get_database, close_connection
+from indexes import create_all_indexes
+from validation import apply_all_validators
 
 
 def reset_collections(db) -> None:
@@ -141,6 +147,8 @@ def main() -> None:
     user_ids = insert_users(db)
     book_ids = insert_books(db, author_ids)
     insert_loans(db, book_ids, user_ids)
+    create_all_indexes(db)
+    apply_all_validators(db)
 
     print("Initialisation de la base terminée avec succès.")
     close_connection()
