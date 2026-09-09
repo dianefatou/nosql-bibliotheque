@@ -1,7 +1,9 @@
 """
 indexes.py
 ----------
-Crée et vérifie les index de la collection "books".
+Crée et vérifie les index du projet.
+
+Sur "books" :
 
 1. Index simple sur "titre" : accélère la recherche par titre et évite
    un scan complet de la collection (COLLSCAN).
@@ -10,6 +12,14 @@ Crée et vérifie les index de la collection "books".
    pour la requête "livres disponibles, triés par date de publication
    décroissante" (page d'accueil typique). MongoDB peut alors filtrer
    ET trier directement via l'index, sans tri en mémoire supplémentaire.
+
+Sur "loans" (amélioration) :
+
+3. Index composé { "utilisateur_id": 1, "date_retour": 1 } : pensé
+   pour la page "Mes emprunts en cours" d'un utilisateur donné — une
+   requête au moins aussi fréquente que celles sur "books". Filtre ET
+   tri en une seule traversée d'index, comme pour l'index composé de
+   "books".
 """
 
 import config
@@ -28,6 +38,13 @@ def create_all_indexes(db) -> None:
 
     print(f"Index créé : {title_index_name}")
     print(f"Index composé créé : {compound_index_name}")
+
+    loans = db[config.COLLECTION_LOANS]
+    loans_index_name = loans.create_index(
+        [("utilisateur_id", 1), ("date_retour", 1)],
+        name="idx_utilisateur_date_retour",
+    )
+    print(f"Index composé créé (loans) : {loans_index_name}")
 
 
 def list_indexes(db) -> list:

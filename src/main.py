@@ -13,6 +13,7 @@ from database import get_database, close_connection
 import crud
 import aggregations
 import indexes
+from validation import apply_all_validators
 
 
 def print_section(title: str) -> None:
@@ -86,6 +87,7 @@ def main() -> None:
     demo_aggregations(db)
     demo_indexes(db)
 
+    apply_all_validators(db)
     close_connection()
     print("\nDémonstration terminée.")
 
