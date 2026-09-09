@@ -162,7 +162,7 @@ python tests\test_project.py
   - index composé sur `{ disponible, date_publication }`.
 - Suite de tests de vérification du bon fonctionnement de bout en bout.
 
-## Modélisation — Embedding vs Referencing
+## Modélisation - Embedding vs Referencing
 
 | Élément | Choix | Justification |
 |---|---|---|
@@ -177,9 +177,9 @@ Le détail complet des justifications se trouve dans `rapport/Devoir Final Group
 
  Master Data Science & Intelligence Artificielle (MSTN), ESMT
  Groupe 3: 
- Fatoumata DIANE
-Moussa KEITA
-ASIEDU Kevin Y.
-Andre Fulgence DIAGNE
-Omar Abdilahi SAAD
-Ibilaounto AGBOTON
+**Fatoumata DIANE**
+**Moussa KEITA**
+**ASIEDU Kevin Y.**
+**Andre Fulgence DIAGNE**
+**Omar Abdilahi SAAD**
+**Ibilaounto AGBOTON**
