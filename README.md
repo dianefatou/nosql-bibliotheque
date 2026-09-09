@@ -12,12 +12,20 @@ NoSQL (embedding vs referencing, conception orientée requêtes), ainsi
 que la mise en œuvre de requêtes CRUD, de pipelines d'agrégation et
 d'index avec **PyMongo**.
 
+## Objectifs pédagogiques
+
+- Comprendre les compromis entre bases relationnelles et bases NoSQL.
+- Modéliser une base documentaire en fonction des besoins applicatifs.
+- Mettre en pratique le CRUD, les pipelines d'agrégation et l'indexation avec MongoDB et PyMongo.
+- Manipuler MongoDB dans un contexte proche d'un usage professionnel réel, via Docker.
+
 ## Technologies utilisées
 
 - **Python 3.14**
 - **MongoDB 7** (via **Docker**)
 - **PyMongo** pour l'accès à la base depuis Python
 - **python-dotenv** pour la gestion de la configuration
+- **Git / GitHub** pour le versionnement du code et l'intégration continue (GitHub Actions)
 
 ## Architecture du projet
 
